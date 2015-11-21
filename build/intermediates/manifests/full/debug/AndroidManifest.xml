@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -62,6 +64,10 @@
         <activity
             android:name="com.matrixdev.tutorhelper.Delete2Activity"
             android:label="@string/title_activity_delete2"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.matrixdev.tutorhelper.ADD3Activity"
             android:screenOrientation="landscape" >
         </activity>
     </application>
