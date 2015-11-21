@@ -70,6 +70,8 @@
             android:name="com.matrixdev.tutorhelper.ADD3Activity"
             android:screenOrientation="landscape" >
         </activity>
+        <activity android:name="com.matrixdev.tutorhelper.View3Activity" >
+        </activity>
     </application>
 
 </manifest>

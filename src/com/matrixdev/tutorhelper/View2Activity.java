@@ -209,7 +209,7 @@ void modify(int flag )
 	}
 	
 	}
-	
+	addListen();
 }
 
 
@@ -228,6 +228,26 @@ void modify(int flag )
 		}
 		
 		
+	}
+
+	public void addListen()
+	{
+
+		TableRow r;
+
+		for(int i =2; i< TL.getChildCount() ; i++)
+		{	r= (TableRow) TL.getChildAt(i);
+			for(int j = 0;j<r.getChildCount() ; j++)
+			{
+				r.getChildAt(j).setOnClickListener(new aListen(i));
+
+
+			}
+
+		}
+
+
+		System.out.println("exit addListener");
 	}
 	
 	@Override
@@ -365,9 +385,9 @@ void modify(int flag )
 			
 			
 			if(counter==0)
-			{
-			modify(0);		
-			counter=1;
+			{addListen();
+                modify(0);
+				counter=1;
 			}
 			else
 			{
@@ -441,7 +461,40 @@ void modify(int flag )
 			
 			return false;
 		}}
-	
+
+	class aListen implements OnClickListener{
+
+		int pos;
+		aListen(int pos)
+		{
+			this.pos=pos;
+		}
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+
+
+            String a = ((EditText)((TableRow)TL.getChildAt(pos)).getChildAt(0)).getText().toString().trim();
+            String b = Id.substring(3);
+            System.out.println("----"+a+"-"+pos);
+
+			Intent i = new Intent(View2Activity.this,View3Activity.class);
+			i.putExtra("STU", a);
+            i.putExtra("ID", b);
+			startActivity(i);
+
+
+
+
+
+
+
+		}
+
+	}
+
+
 	class spinAction implements OnItemSelectedListener 
 	{
 
@@ -520,6 +573,7 @@ void modify(int flag )
 				spinFlag[pos]=1;
 			
 			addPhnListen();
+			addListen();
 		}
 
 		@Override

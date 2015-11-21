@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:2:1-75:12
+ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:2:1-77:12
 	package
 		ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:3:5-40
 	android:versionName
@@ -36,7 +36,7 @@ ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:15:5-83
 	android:name
 		ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:15:30-80
 application
-ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:17:5-73:19
+ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:17:5-75:19
 MERGED from [com.android.support:appcompat-v7:23.1.1] D:\Users\milin\workspace\TutorHelper\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] D:\Users\milin\workspace\TutorHelper\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 	android:label
@@ -126,6 +126,10 @@ ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:64:9-68:20
 activity#com.matrixdev.tutorhelper.ADD3Activity
 ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:69:9-72:20
 	android:screenOrientation
-		ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:70:13-50
+		ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:71:13-50
 	android:name
-		ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:69:19-47
+		ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:70:13-41
+activity#com.matrixdev.tutorhelper.View3Activity
+ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:73:9-74:20
+	android:name
+		ADDED from D:\Users\milin\workspace\TutorHelper\AndroidManifest.xml:73:19-48

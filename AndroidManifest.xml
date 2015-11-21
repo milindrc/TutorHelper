@@ -66,9 +66,11 @@
             android:label="@string/title_activity_delete2"
             android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".ADD3Activity"
-            android:screenOrientation="landscape"
-            >
+        <activity
+            android:name=".ADD3Activity"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity android:name=".View3Activity" >
         </activity>
     </application>
 

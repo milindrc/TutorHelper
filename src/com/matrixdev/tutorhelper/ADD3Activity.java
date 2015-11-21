@@ -206,12 +206,10 @@ public class ADD3Activity extends Activity {
             switch(i)
             {
 
-                case 2: err += ValidatePhn((EditText) editRow.getChildAt(i));
+                case 1: err += ValidateDate((EditText) editRow.getChildAt(i));
                     break;
-                case 3:
-                case 4: err += ValidateDate((EditText) editRow.getChildAt(i));
-                    break;
-                case 6: err += ValidateNumber((EditText) editRow.getChildAt(i));
+
+                case 2: err += ValidateNumber((EditText) editRow.getChildAt(i));
 
 
 
@@ -228,12 +226,9 @@ public class ADD3Activity extends Activity {
         {
             switch(i)
             {
-                case 3 :
-                case 4 : editRow.getChildAt(i).setOnClickListener(new inputDate());
+                case 1 : editRow.getChildAt(i).setOnClickListener(new inputDate());
                     editRow.getChildAt(i).setFocusable(false);
                     break;
-                case 5 :editRow.getChildAt(i).setOnClickListener(new inputFeeType());
-                    editRow.getChildAt(i).setFocusable(false);
 
 
             }
