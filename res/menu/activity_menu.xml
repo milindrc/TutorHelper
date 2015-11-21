@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menu_settings"/>
+    
+    <item
+        android:id="@+id/sdbackup"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Backup on SD Card"/>
+    
+	<item
+        android:id="@+id/sdrestore"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Restore from SD Card"/>
+
+</menu>

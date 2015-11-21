@@ -1,0 +1,47 @@
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/AbsoluteLayout1"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"   
+    tools:context="com.matrixdev.tutorhelper.Delete2Activity" >
+
+    <HorizontalScrollView 
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent">
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="611dp"
+        android:layout_height="match_parent"
+        android:layout_x="15dp"
+        android:layout_y="12dp"
+        android:fadingEdge="vertical|horizontal"
+        android:scrollbars="horizontal|vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:id="@+id/TB2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    </HorizontalScrollView>
+
+   
+    
+     <Button
+        android:id="@+id/Del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="267dp"
+        android:layout_y="249dp"
+        android:text="Delete Selected" />
+    
+</AbsoluteLayout>
+<!-- From: file:/D:/Users/milin/workspace/TutorHelper/res/layout/activity_delete2.xml -->

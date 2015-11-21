@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:maxLines="1"
+        android:hint="@string/PassWord"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/text2"
+        android:layout_alignLeft="@+id/text2"
+        android:layout_alignRight="@+id/text2"
+        android:layout_marginBottom="54dp"
+        android:ems="10"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:hint="@string/UserName" >
+
+        <requestFocus />
+    </EditText>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:contentDescription=""
+        android:src="@drawable/ic_launcher" />
+
+    <CheckBox
+        android:id="@+id/SC1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/ADD"
+        android:layout_below="@+id/text2"
+        android:layout_marginTop="18dp"
+        android:checked="false"
+        android:text="Remember Me" />
+
+    <Button
+        android:id="@+id/ADD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SC1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="login" />
+
+</RelativeLayout><!-- From: file:/D:/Users/milin/workspace/TutorHelper/res/layout/activity_main.xml -->
