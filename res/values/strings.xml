@@ -21,5 +21,7 @@
     <string name="title_activity_view2">View Student Records</string>
     <string name="title_activity_delete">Delete Batch Records</string>
     <string name="title_activity_delete2">Delete Student Records</string>
+    <string name="title_activity_attandance_menu">AttandanceMenu</string>
+    <string name="title_activity_attandance">AttandanceActivity</string>
 
 </resources>

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   
+
     tools:context=".MenuActivity" >
 
     <Button
@@ -45,5 +45,15 @@
         android:layout_marginTop="53dp"
         android:onClick="delete"
         android:text="Delete Records" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attandance"
+        android:id="@+id/attandance"
+        android:layout_below="@+id/Del"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:onClick="attandance" />
 
 </RelativeLayout>

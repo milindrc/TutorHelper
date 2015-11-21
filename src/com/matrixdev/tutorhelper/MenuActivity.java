@@ -43,6 +43,12 @@ public class MenuActivity extends Activity {
 		
 	}
 
+	public void attandance(View view)
+	{
+		Intent intent=new Intent(MenuActivity.this,AttandanceMenu.class);
+		startActivity(intent);
+	}
+
 	public void add(View view)
 	{
 		Intent i = new Intent(MenuActivity.this,ADDActivity.class);
