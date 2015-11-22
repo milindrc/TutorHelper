@@ -1607,8 +1607,8 @@ containing a value of this type.
         public static final int ST4=0x7f0b0067;
         public static final int TB1=0x7f0b0053;
         public static final int TB2=0x7f0b005b;
-        public static final int VB1=0x7f0b0058;
-        public static final int VB2=0x7f0b0059;
+        public static final int VB1=0x7f0b0057;
+        public static final int VB2=0x7f0b0058;
         public static final int action0=0x7f0b006b;
         public static final int action_bar=0x7f0b0041;
         public static final int action_bar_activity_content=0x7f0b0000;
@@ -1625,7 +1625,7 @@ containing a value of this type.
         public static final int action_mode_bar_stub=0x7f0b003d;
         public static final int action_mode_close_button=0x7f0b0023;
         public static final int action_settings=0x7f0b007a;
-        public static final int activity_attandance_menu=0x7f0b0057;
+        public static final int activity_attandance_menu=0x7f0b0059;
         public static final int activity_chooser_view_content=0x7f0b0024;
         public static final int alertTitle=0x7f0b0030;
         public static final int always=0x7f0b001b;
