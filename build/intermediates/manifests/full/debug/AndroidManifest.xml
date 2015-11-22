@@ -70,7 +70,21 @@
             android:name="com.matrixdev.tutorhelper.ADD3Activity"
             android:screenOrientation="landscape" >
         </activity>
-        <activity android:name="com.matrixdev.tutorhelper.View3Activity" >
+        <activity
+            android:name="com.matrixdev.tutorhelper.View3Activity"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.matrixdev.tutorhelper.Delete3Activity"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.matrixdev.tutorhelper.AttandanceMenu"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.matrixdev.tutorhelper.AttandanceActivity"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 

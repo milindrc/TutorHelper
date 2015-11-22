@@ -1,15 +1,17 @@
 package com.matrixdev.tutorhelper;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.net.Uri;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,7 +25,7 @@ import android.widget.Toast;
 
 import MyDatabasePkg.MyDatabase;
 
-public class View3Activity extends Activity {
+public class Delete3Activity extends Activity {
 
     private Context context = this;
     TableLayout TL;
@@ -35,11 +37,9 @@ public class View3Activity extends Activity {
     int spinFlag[];
     TableRow savedState[][];
     int pos;
+    int selectFlag=0;
 
     String Id;
-
-    int counter=0;
-
 
     void createDB()
     {
@@ -141,7 +141,7 @@ public class View3Activity extends Activity {
     }
 
 
-    String[] toUpdateQuery(String Tname)
+    String[] toInsertQuery(String Tname)
     {
 
         String[] Query  = new String[TL.getChildCount()-2];
@@ -153,13 +153,22 @@ public class View3Activity extends Activity {
         {
             tr = (TableRow) TL.getChildAt(i+2);
 
-            Query[i]="update " + Tname +" set submitted_on ='"+((EditText)tr.getChildAt(1)).getText().toString().trim()+"',";
-            Query[i]+="amount ='"+((EditText)tr.getChildAt(2)).getText().toString().trim()+"'";
+            Query[i]="Insert into " + Tname +" values('"+((EditText)tr.getChildAt(0)).getText().toString()+"'";
 
+            EditText et;
 
-            Query[i]+=" where sno = " +((EditText)tr.getChildAt(0)).getText().toString();
+            for(int j =1 ; j<tr.getChildCount();j++)
+            {
+                et =(EditText) tr.getChildAt(j);
 
-            Query[i]+=";";
+                if(rs.getType(j)==rs.FIELD_TYPE_INTEGER)
+                    Query[i]+=","+et.getText().toString();
+                else
+                    Query[i]+=",'"+et.getText().toString()+"'";
+
+            }
+
+            Query[i]+=");";
 
 
         }
@@ -180,19 +189,17 @@ public class View3Activity extends Activity {
         for(int i=2;i<TL.getChildCount();i++)
         {
             TableRow tr = (TableRow)TL.getChildAt(i);
-            for(int j=1;j<tr.getChildCount();j++)
+            for(int j=0;j<tr.getChildCount();j++)
             {
                 if(flag==0)
                 {((EditText)tr.getChildAt(j)).setFocusable(true);
                     ((EditText)tr.getChildAt(j)).setFocusableInTouchMode(true);
                     ((EditText)tr.getChildAt(j)).setBackgroundResource(android.R.drawable.editbox_background);
                     ((EditText)tr.getChildAt(j)).setPadding(0, 2, 0, 2);
-
                 }
                 else
                 {((EditText)tr.getChildAt(j)).setFocusable(false);
                     ((EditText)tr.getChildAt(j)).setBackgroundColor(Color.parseColor("#00000000"));
-
                 }
             }
 
@@ -201,55 +208,40 @@ public class View3Activity extends Activity {
     }
 
 
-    void addPhnListen()
+
+    public void addListen2()
     {
-        for(int i=2;i<TL.getChildCount();i++)
-        {
-            TableRow tr = (TableRow) TL.getChildAt(i);
 
-            EditText et = (EditText) tr.getChildAt(2);
+        TableRow r;
 
-            String num = et.getText().toString().trim();
+        for(int i =2; i< TL.getChildCount() ; i++)
+        {	r= (TableRow) TL.getChildAt(i);
+            for(int j = 0;j<r.getChildCount() ; j++)
+            {
+                r.getChildAt(j).setOnLongClickListener(new aListen2(i));
 
-            et.setOnLongClickListener(new phnListen(num));
+
+            }
 
         }
 
-
+        Toast.makeText(getBaseContext(), "ok2", Toast.LENGTH_LONG).show();
+        System.out.println("exit addListener2");
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view2);
+        setContentView(R.layout.activity_delete2);
 
+        Id="fee"+getIntent().getStringExtra("ID")+"_"+getIntent().getStringExtra("STU");
 
-
-        SharedPreferences shp = getSharedPreferences("login", 0);
-        if(shp.getString("user", "").equals("guest"))
-        {
-
-            ((Button) findViewById(R.id.VB1)).setVisibility(View.INVISIBLE);
-
-            ((Button) findViewById(R.id.VB2)).setVisibility(View.INVISIBLE);
-
-
-        }
-
-
-
-        Id = getIntent().getStringExtra("ID");
-        Id+="_"+getIntent().getStringExtra("STU");
-        Id="fee"+Id;
-
-        System.out.println("----" + getIntent().getStringExtra("STU"));
 
         TL = (TableLayout) findViewById(R.id.TB2);
 
         mydb =  new MyDatabase(context);
         mydb.openDatabase();
-
-
 
         rs=  mydb.sqldb.rawQuery("select * from "+Id,null);
         rs.moveToFirst();
@@ -283,7 +275,7 @@ public class View3Activity extends Activity {
             rs2 = mydb.sqldb.rawQuery("select distinct("+ rs.getColumnName(i) +") from "+Id,null);
 
             S[i] = new String[rs2.getCount()+1];
-            S[i][0] = rs.getColumnName(i).toUpperCase().trim();
+            S[i][0] = rs.getColumnName(i).toUpperCase();
 
             for(int j = 0 ; j< rs2.getCount();j++)
             { 	rs2.moveToPosition(j);
@@ -343,95 +335,96 @@ public class View3Activity extends Activity {
         //__________________________________________________________________________________________
 
 
-
-
-        Button B1 = (Button) findViewById(R.id.VB1);
-        B1.setOnClickListener(new View.OnClickListener() {
+        Button B = (Button) findViewById(R.id.Del);
+        B.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-
-
-
-
-                if(counter==0)
-                {
-                    modify(0);
-                    counter=1;
-                }
-                else
-                {
-                    modify(1);
-                    counter=0;
-
-                }
-
-
-
-            }
-        });
-
-        Button B2 = (Button) findViewById(R.id.VB2);
-        B2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-                modify(1);
-
-                rs.moveToFirst();
-
-                String[] Query= new String[rs.getCount()];
-
-                Query = toUpdateQuery(Id);
 
                 mydb.openDatabase();
 
 
-
-                for(int i =0;i<Query.length;i++)
+                for(int i=2;i<TL.getChildCount();i++)
                 {
-                    mydb.sqldb.execSQL(Query[i]);
+                    EditText et = (EditText) ((TableRow)TL.getChildAt(i)).getChildAt(0);
+
+                    if(((ColorDrawable)et.getBackground()).getColor()==Color.parseColor("#2E2EFE"))
+                    {
+                        String student = et.getText().toString().trim();
+
+                        mydb.sqldb.execSQL("delete from "+Id+" where sno ='"+student+"'");
+
+
+
+                    }
+
 
                 }
-
-                rs = mydb.sqldb.rawQuery("select * from "+Id+";", null);
-
+                rs = mydb.sqldb.rawQuery("select * from "+Id, null);
                 deleteDB(0);
                 createDB();
 
+                addListen2();
             }
         });
 
 
+
+        Handler h = new Handler();
+        h.postDelayed(r, 1000);
+
+
     }
 
+    Runnable r  =  new Runnable() {
 
-    class phnListen implements View.OnLongClickListener
-    {
-        String num;
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
 
-        phnListen(String num)
-        {
+            addListen2();
 
-            this.num=num;
+
 
         }
+    };
 
+
+    class aListen2 implements View.OnLongClickListener {
+
+        int pos;
+        aListen2(int pos)
+        {
+            this.pos=pos;
+        }
+
+        @SuppressLint("NewApi")
         @Override
         public boolean onLongClick(View v) {
             // TODO Auto-generated method stub
 
+            TableRow tr =((TableRow)TL.getChildAt(pos));
 
-            Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:" + num));
-            startActivity(callIntent);
+            for(int i=0;i<tr.getChildCount();i++)
+            {
+                EditText et =((EditText)tr.getChildAt(i));
 
+
+                if(((ColorDrawable)et.getBackground()).getColor()==Color.parseColor("#00000000"))
+                    et.setBackgroundColor(Color.parseColor("#2E2EFE"));
+                else
+                    et.setBackgroundColor(Color.parseColor("#00000000"));
+
+            }
 
             return false;
-        }}
+
+        }
+
+    }
+
+
 
     class spinAction implements AdapterView.OnItemSelectedListener
     {
@@ -510,7 +503,8 @@ public class View3Activity extends Activity {
             else
                 spinFlag[pos]=1;
 
-            addPhnListen();
+            addListen2();
+
 
         }
 
@@ -524,11 +518,23 @@ public class View3Activity extends Activity {
     }// custom spinner listener
 
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.view, menu);
+        getMenuInflater().inflate(R.menu.delete2, menu);
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
