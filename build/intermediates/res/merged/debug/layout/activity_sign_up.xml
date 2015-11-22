@@ -110,4 +110,4 @@
         android:layout_alignRight="@+id/ST3"
         android:layout_below="@+id/SB1" />
 
-</RelativeLayout><!-- From: file:/C:/Users/ASUS/Documents/GitHub/TutorHelper/res/layout/activity_sign_up.xml -->
+</RelativeLayout><!-- From: file:/D:/Users/milin/workspace/TutorHelper/res/layout/activity_sign_up.xml -->
