@@ -37,28 +37,14 @@
   <component name="ChangeListManager">
     <list default="true" id="74f08d76-efed-466c-a2bb-f6e2508bc521" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/AttandanceActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/AttandanceActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/AttandanceMenu.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/AttandanceMenu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/R$id.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/apk/TutorHelper-debug-unaligned.apk" afterPath="$PROJECT_DIR$/build/outputs/apk/TutorHelper-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/apk/TutorHelper-debug.apk" afterPath="$PROJECT_DIR$/build/outputs/apk/TutorHelper-debug.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/View2Activity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/View2Activity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/ViewActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/matrixdev/tutorhelper/ViewActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/build/intermediates/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/matrixdev/tutorhelper/AttandanceActivity.java" afterPath="$PROJECT_DIR$/src/com/matrixdev/tutorhelper/AttandanceActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/matrixdev/tutorhelper/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/matrixdev/tutorhelper/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_attandance.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_attandance.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_attandance.xml" afterPath="$PROJECT_DIR$/res/layout/activity_attandance.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TutorHelper.iws" />
@@ -100,48 +86,9 @@
       <file leaf-file-name="AttandanceActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/matrixdev/tutorhelper/AttandanceActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22900763">
-              <caret line="153" column="34" selection-start-line="153" selection-start-column="34" selection-end-line="153" selection-end-column="34" />
+            <state vertical-scroll-proportion="1.53">
+              <caret line="97" column="15" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLiteDatabase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/sdk1/sources/android-23/android/database/sqlite/SQLiteDatabase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1634" column="0" selection-start-line="1634" selection-start-column="0" selection-end-line="1634" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#94092#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#2641#2665#0" expanded="false" />
-                <element signature="e#2882#3035#0" expanded="false" />
-                <element signature="e#3034#3035#0" expanded="false" />
-                <element signature="e#11406#11407#0" expanded="false" />
-                <element signature="e#11436#11437#0" expanded="false" />
-                <element signature="e#12353#12354#0" expanded="false" />
-                <element signature="e#12404#12405#0" expanded="false" />
-                <element signature="e#16301#16302#0" expanded="false" />
-                <element signature="e#16377#16378#0" expanded="false" />
-                <element signature="e#22538#22539#0" expanded="false" />
-                <element signature="e#22566#22567#0" expanded="false" />
-                <element signature="e#25365#25366#0" expanded="false" />
-                <element signature="e#25418#25419#0" expanded="false" />
-                <element signature="e#29288#29487#0" expanded="false" />
-                <element signature="e#29486#29487#0" expanded="false" />
-                <element signature="e#33641#33642#0" expanded="false" />
-                <element signature="e#33700#33701#0" expanded="false" />
-                <element signature="e#35287#35288#0" expanded="false" />
-                <element signature="e#35344#35345#0" expanded="false" />
-                <element signature="e#74831#74832#0" expanded="false" />
-                <element signature="e#74879#74880#0" expanded="false" />
-                <element signature="e#87044#87053#0" expanded="false" />
-                <element signature="e#87574#87590#0" expanded="false" />
-                <element signature="e#88718#88740#0" expanded="false" />
-                <element signature="e#93110#93111#0" expanded="false" />
-                <element signature="e#93163#93164#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1375,7 +1322,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1385,7 +1332,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33207262" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32961783" sideWeight="0.4924357" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.4924357" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.54140127" sideWeight="0.49092284" order="7" side_tool="false" content_ui="tabs" />
@@ -1703,14 +1650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/matrixdev/tutorhelper/ADDActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="19" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_attandance.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -1727,9 +1666,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk1/sources/android-23/android/database/sqlite/SQLiteDatabase.java">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk1/sources/android-23/android/database/sqlite/SQLiteDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14333333">
           <caret line="1634" column="0" selection-start-line="1634" selection-start-column="0" selection-end-line="1634" selection-end-column="0" />
           <folding>
             <element signature="e#0#94092#0" expanded="false" />
@@ -1764,18 +1711,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/matrixdev/tutorhelper/ADDActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+          <caret line="56" column="19" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/matrixdev/tutorhelper/AttandanceActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22900763">
-          <caret line="153" column="34" selection-start-line="153" selection-start-column="34" selection-end-line="153" selection-end-column="34" />
+        <state vertical-scroll-proportion="1.53">
+          <caret line="97" column="15" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
           <folding />
         </state>
       </provider>

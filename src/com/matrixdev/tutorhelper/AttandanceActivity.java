@@ -15,6 +15,7 @@ import android.widget.TableRow;
 import android.widget.Toast;
 
 import java.sql.Time;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -30,14 +31,18 @@ public class AttandanceActivity extends Activity {
     TableRow Ctr,editRow;
     int colWidth[];
 
-    void createDB()
+    void createDB(int id)
     {
 
         mydb.openDatabase();
-
+        getname(id);
         //mydb.sqldb.execSQL("insert into tb1 values(null,'A','X' );");
 
+
+
         rs.moveToFirst();
+
+
 
         Ctr = new TableRow(context);
         for(int i =0; i < rs.getColumnCount() ; i++)
@@ -65,9 +70,15 @@ public class AttandanceActivity extends Activity {
         {
             tr[i] = new TableRow(context);
 
-
             for(int j = 0; j < rs.getColumnCount() ; j++)
             {
+
+
+                if (rs.getString(j)==null)
+                    continue;
+
+
+
                 TV[j] = new EditText(context);
                 TV[j].setBackgroundColor(Color.parseColor("#00000000"));
                 TV[j].setPadding(1, 2, 2, 2);
@@ -84,75 +95,27 @@ public class AttandanceActivity extends Activity {
         }
         // Adding Data rows into table
 
+       /* try {
+            String name[] = getname(id);
+            for (int i = 0; i < name.length; i++) {
+                mydb.sqldb.execSQL("Alter table Att" + id + " add " + name[i] + " varchar(20)");
+            }
+        }
+        catch (Exception e)
+        {Toast.makeText(getApplicationContext(),"Database Exist",Toast.LENGTH_SHORT).show();
+        }*/
 
         mydb.sqldb.close();
 
         //_____________________________________________________________________________________________
 
     }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attandance);
-
-        TL = (TableLayout)   findViewById(R.id.TB1);
-        editRow = (TableRow)   findViewById(R.id.tableRow5);
-
-        mydb=new MyDatabase(this);
-        mydb.openDatabase();
-        String Id="Att"+getIntent().getIntExtra("ID",0);
-        Calendar c = Calendar.getInstance();
-        int y= c.get(Calendar.YEAR);
-        String yr= new Integer(y).toString();
-        try {
-            attan(Id, yr);
-
-        }
-        catch (Exception e) {
-            Toast.makeText(getApplicationContext(),"Database found",Toast.LENGTH_SHORT).show();
-        }
-
-        rs=  mydb.sqldb.rawQuery("select * from "+Id+";", null);
-       rs.moveToFirst();
-
-        TV = new EditText[rs.getColumnCount()];
-       colWidth = new int[rs.getColumnCount()];
-
-
-        //_________________________________________________________________________________________
-
-        createDB();
-
-
-     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_attandance, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
     public void attan(String batch,String yr)
     {
 
 
         Toast.makeText(getApplicationContext(),batch,Toast.LENGTH_SHORT).show();
-       mydb.sqldb.execSQL("create table "+batch+"(Year Varchar(20) DEFAULT "+yr+",month varchar(20),day varchar(3))");
+        mydb.sqldb.execSQL("create table "+batch+"(Year Varchar(20) DEFAULT "+yr+",month varchar(20),day varchar(3))");
         int y=0;
         int ya=(Integer.parseInt(yr));
         if (ya%4==0&&ya%400==0&&ya%100!=0)
@@ -228,4 +191,93 @@ public class AttandanceActivity extends Activity {
 
         }
     }
+    public void getname(int student)
+    {
+        rs2=mydb.sqldb.rawQuery("select name from stu"+student+";", null);
+        String arr[]=new String[rs2.getColumnCount()];
+        for (int i=0;i<arr.length;i++)
+        {
+            rs2.moveToPosition(i);
+            arr[i]=rs2.getString(0);
+            try {
+                mydb.sqldb.execSQL("Alter table Att" + student + " add " + arr[i] + " varchar(20)");
+            }
+            catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Database Exist", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+         /* for (int i = 0; i < arr.length; i++) {
+           try {
+                mydb.sqldb.execSQL("Alter table Att" + student + " add " + arr[i] + " varchar(20)");
+            }
+            catch (Exception e)
+            { Toast.makeText(getApplicationContext(),"Database Exist",Toast.LENGTH_SHORT).show();
+                break;
+
+            }*/
+            }
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_attandance);
+
+        TL = (TableLayout)   findViewById(R.id.TB1);
+        editRow = (TableRow)   findViewById(R.id.tableRow5);
+
+        mydb=new MyDatabase(this);
+        mydb.openDatabase();
+         String Id="Att"+getIntent().getIntExtra("ID",0);
+        int id=getIntent().getIntExtra("ID",0);
+
+        Calendar c = Calendar.getInstance();
+        int y= c.get(Calendar.YEAR);
+        String yr= new Integer(y).toString();
+        try {
+            attan(Id, yr);
+
+        }
+        catch (Exception e) {
+            Toast.makeText(getApplicationContext(),"Database found",Toast.LENGTH_SHORT).show();
+        }
+
+        rs=  mydb.sqldb.rawQuery("select * from "+Id+";", null);
+       rs.moveToFirst();
+
+        TV = new EditText[rs.getColumnCount()];
+       colWidth = new int[rs.getColumnCount()];
+
+
+        //_________________________________________________________________________________________
+
+        createDB(id);
+
+
+     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_attandance, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
