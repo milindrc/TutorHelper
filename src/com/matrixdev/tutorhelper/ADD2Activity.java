@@ -13,6 +13,8 @@ import com.matrixdev.tutorhelper.ADDActivity.inputDate;
 import com.matrixdev.tutorhelper.ADDActivity.inputTime;
 
 import MyDatabasePkg.MyDatabase;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -127,8 +129,24 @@ public class ADD2Activity extends Activity {
 		}
 		
 	}
-	
-	
+
+	void addListen()
+	{
+		TableRow r;
+
+		for(int i =1; i< TL.getChildCount() ; i++)
+		{	r= (TableRow) TL.getChildAt(i);
+			for(int j = 0;j<r.getChildCount() ; j++)
+			{
+				r.getChildAt(j).setOnClickListener(new eListen(i));
+
+
+			}
+
+		}
+
+
+	}
 
 	void setId()
 	{
@@ -281,7 +299,7 @@ public class ADD2Activity extends Activity {
 		
 		createDB();
 		
-		
+		addListen();
 		//______________________________________________________________________________________________
 		
 		
@@ -381,7 +399,7 @@ public class ADD2Activity extends Activity {
 				}
 				
 				setId();
-				
+				addListen();
 				
 			}//onClick
 		});//Listener
@@ -493,6 +511,32 @@ public class ADD2Activity extends Activity {
 			
 			
 		}
+	}
+
+	class eListen implements OnClickListener{
+
+		int pos;
+		eListen(int pos)
+		{
+			this.pos=pos;
+		}
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+
+			String a = ((EditText)((TableRow)TL.getChildAt(pos)).getChildAt(0)).getText().toString().trim();
+            String b = ADD2Activity.this.getIntent().getStringExtra("ID");
+
+			Toast.makeText(ADD2Activity.this,"Id"+a, Toast.LENGTH_LONG).show();
+
+			Intent i = new Intent(ADD2Activity.this,ADD3Activity.class);
+			i.putExtra("STU", a);
+            i.putExtra("ID",b);
+			startActivity(i);
+
+		}
+
 	}
 	
 	class inputFeeType implements OnClickListener

@@ -67,14 +67,10 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.matrixdev.tutorhelper.AttandanceMenu"
-            android:label="@string/title_activity_attandance_menu"
+            android:name="com.matrixdev.tutorhelper.ADD3Activity"
             android:screenOrientation="landscape" >
         </activity>
-        <activity
-            android:name="com.matrixdev.tutorhelper.AttandanceActivity"
-            android:label="@string/title_activity_attandance"
-            android:screenOrientation="landscape" >
+        <activity android:name="com.matrixdev.tutorhelper.View3Activity" >
         </activity>
     </application>
 
