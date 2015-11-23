@@ -70,7 +70,17 @@
             android:name=".ADD3Activity"
             android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".View3Activity" >
+        <activity android:name=".View3Activity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".Delete3Activity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".AttandanceMenu"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".AttandanceActivity"
+            android:screenOrientation="landscape">
         </activity>
     </application>
 

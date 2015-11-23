@@ -39,6 +39,7 @@ public class Delete2Activity extends Activity {
 	int spinFlag[];
 	TableRow savedState[][];
 	int pos;
+    int selectFlag=0;
 	
 	String Id;
 	
@@ -208,6 +209,20 @@ void modify(int flag )
 	
 }
 
+	public void addListen() {
+
+		TableRow r;
+
+		for (int i = 2; i < TL.getChildCount(); i++) {
+			r = (TableRow) TL.getChildAt(i);
+			for (int j = 0; j < r.getChildCount(); j++) {
+				r.getChildAt(j).setOnClickListener(new aListen(i));
+
+
+			}
+
+		}
+	}
 
 public void addListen2()
 {
@@ -384,11 +399,41 @@ System.out.println("exit addListener2");
 			// TODO Auto-generated method stub
 			
 			addListen2();
+            addListen();
 			  	
 					
 		}
 	};
-	
+
+    class aListen implements OnClickListener{
+
+        int pos;
+        aListen(int pos)
+        {
+            this.pos=pos;
+        }
+
+        @Override
+        public void onClick(View v) {
+            // TODO Auto-generated method stub
+
+
+            String ID = ((EditText)((TableRow)TL.getChildAt(pos)).getChildAt(0)).getText().toString().trim();
+
+
+
+            Intent i = new Intent(Delete2Activity.this,Delete3Activity.class);
+            i.putExtra("ID",new Integer( getIntent().getIntExtra("ID",0)).toString());
+            i.putExtra("STU",ID);
+
+            if(selectFlag==0)
+                startActivity(i);
+            else
+                selectFlag=0;
+
+        }
+
+    }
 	
 	class aListen2 implements OnLongClickListener{
 
@@ -503,7 +548,7 @@ System.out.println("exit addListener2");
 				spinFlag[pos]=1;
 			
 			addListen2();
-			
+			addListen();
 			
 		}
 

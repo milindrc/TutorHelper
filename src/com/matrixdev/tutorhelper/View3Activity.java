@@ -153,14 +153,11 @@ public class View3Activity extends Activity {
         {
             tr = (TableRow) TL.getChildAt(i+2);
 
-            Query[i]="update " + Tname +" set name ='"+((EditText)tr.getChildAt(1)).getText().toString().trim()+"',";
-            Query[i]+="phn_no ='"+((EditText)tr.getChildAt(2)).getText().toString().trim()+"',";
-            Query[i]+="Due_date ='"+((EditText)tr.getChildAt(3)).getText().toString().trim()+"',";
-            Query[i]+="last_pay ='"+((EditText)tr.getChildAt(4)).getText().toString().trim()+"',";
-            Query[i]+="fee_type ='"+((EditText)tr.getChildAt(5)).getText().toString().trim()+"',";
-            Query[i]+="fee ='"+((EditText)tr.getChildAt(6)).getText().toString().trim()+"'";
+            Query[i]="update " + Tname +" set submitted_on ='"+((EditText)tr.getChildAt(1)).getText().toString().trim()+"',";
+            Query[i]+="amount ='"+((EditText)tr.getChildAt(2)).getText().toString().trim()+"'";
 
-            Query[i]+=" where id = " +((EditText)tr.getChildAt(0)).getText().toString();
+
+            Query[i]+=" where sno = " +((EditText)tr.getChildAt(0)).getText().toString();
 
             Query[i]+=";";
 

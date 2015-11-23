@@ -346,10 +346,7 @@ public class ADD3Activity extends Activity {
                 System.out.println(query);
 
                 mydb.sqldb.execSQL(query);
-                mydb.sqldb.execSQL("create table fee"+id.substring(3)+"_"+((EditText)editRow.getChildAt(0)).getText().toString().trim()+"(\n" +
-                        "sno integer primary key autoincrement,\n" +
-                        "Submitted_On date,\n" +
-                        "Amount float ); ");
+
 
                 Toast.makeText(ADD3Activity.this, "Record added successfully", Toast.LENGTH_LONG).show();
 
