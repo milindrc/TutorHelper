@@ -34,8 +34,8 @@ public class AttandanceActivity extends Activity {
     void createDB(int id)
     {
 
-        mydb.openDatabase();
-        getname(id);
+
+
         //mydb.sqldb.execSQL("insert into tb1 values(null,'A','X' );");
 
 
@@ -194,8 +194,8 @@ public class AttandanceActivity extends Activity {
     public void getname(int student)
     {
         rs2=mydb.sqldb.rawQuery("select name from stu"+student+";", null);
-        String arr[]=new String[rs2.getColumnCount()];
-        for (int i=0;i<arr.length;i++)
+        String arr[]=new String[rs2.getCount()];
+        for (int i=0;i<rs2.getCount();i++)
         {
             rs2.moveToPosition(i);
             arr[i]=rs2.getString(0);
@@ -244,8 +244,12 @@ public class AttandanceActivity extends Activity {
             Toast.makeText(getApplicationContext(),"Database found",Toast.LENGTH_SHORT).show();
         }
 
+        getname(id);
+
         rs=  mydb.sqldb.rawQuery("select * from "+Id+";", null);
-       rs.moveToFirst();
+        rs.moveToFirst();
+
+
 
         TV = new EditText[rs.getColumnCount()];
        colWidth = new int[rs.getColumnCount()];
