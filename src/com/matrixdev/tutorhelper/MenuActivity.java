@@ -80,6 +80,14 @@ public class MenuActivity extends Activity {
 		startActivity(i);
 		
 	}
+
+	public void Today(View view)
+	{
+		Intent i = new Intent(MenuActivity.this,TodayActivity.class);
+
+		startActivity(i);
+
+	}
 	
 	
 	@Override

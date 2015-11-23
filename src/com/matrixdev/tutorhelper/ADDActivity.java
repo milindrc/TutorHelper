@@ -2,6 +2,7 @@ package com.matrixdev.tutorhelper;
 
 
 
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -201,8 +202,8 @@ public class ADDActivity extends Activity {
 		String flag="";
 			
 		try {
-				format1.parse(s);
-		
+				 format1.parse(s);
+
 			   flag="Valid";
 		} catch (Exception e) {
 			
@@ -255,7 +256,7 @@ public class ADDActivity extends Activity {
 			return "";
 		} catch (Exception e) {
 		
-			return "Syntax for Fee : <should only consist of numbers> \n";
+			return "Syntax for Students : <should only consist of numbers> \n";
 						
 		}
 
@@ -275,7 +276,7 @@ public class ADDActivity extends Activity {
 			
 			case 2: err += ValidateTime((EditText) editRow.getChildAt(i));
 				break;
-			case 3: err += ValidateNumber((EditText) editRow.getChildAt(i));
+			case 4: err += ValidateNumber((EditText) editRow.getChildAt(i));
 				break;
 			case 7: err += ValidateDate((EditText) editRow.getChildAt(i));
 			

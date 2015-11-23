@@ -86,6 +86,8 @@
             android:name="com.matrixdev.tutorhelper.AttandanceActivity"
             android:screenOrientation="landscape" >
         </activity>
+        <activity android:name="com.matrixdev.tutorhelper.TodayActivity" >
+        </activity>
     </application>
 
 </manifest>
