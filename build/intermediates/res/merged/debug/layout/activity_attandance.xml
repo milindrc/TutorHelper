@@ -47,22 +47,14 @@
         android:contextClickable="false"
         android:foreground="#060606" />
 
-    <Spinner
-        android:layout_width="96dp"
-        android:layout_height="65dp"
-        android:id="@+id/spinner3"
-        android:layout_x="184dp"
-        android:layout_y="236dp"
-        android:foreground="#060606" />
-
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save Changes"
         android:id="@+id/button"
-        android:layout_x="350dp"
-        android:layout_y="259dp" />
+        android:layout_x="344dp"
+        android:layout_y="255dp" /><![CDATA[
 
     Button
         android:id="@+id/VB1"
@@ -79,5 +71,6 @@
         android:layout_x="440dp"
         android:layout_y="230dp"
         android:text="Save Changes" />
+]]>
 </AbsoluteLayout>
 <!-- From: file:/C:/Users/ASUS/Documents/GitHub/TutorHelper/res/layout/activity_attandance.xml -->

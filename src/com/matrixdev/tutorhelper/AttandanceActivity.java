@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,11 +44,6 @@ public class AttandanceActivity extends Activity {
 
     void createDB()
     {
-
-
-
-        //mydb.sqldb.execSQL("insert into tb1 values(null,'A','X' );");
-
 
 
         rs.moveToFirst();
@@ -129,7 +125,7 @@ public class AttandanceActivity extends Activity {
     {
 
 
-        Toast.makeText(getApplicationContext(),batch,Toast.LENGTH_SHORT).show();
+
         mydb.sqldb.execSQL("create table " + batch + "(Id integer primary key  autoincrement,Year Varchar(20) DEFAULT " + yr + ",month varchar(20),day varchar(3))");
         int y=0;
         int ya=(Integer.parseInt(yr));
@@ -221,19 +217,11 @@ public class AttandanceActivity extends Activity {
                 mydb.sqldb.execSQL("Alter table Att" + student +" add "+ arr[i]+"_"+id[i]+ " varchar(20)");
             }
             catch (Exception e) {
-                Toast.makeText(getApplicationContext(), "Database Exist", Toast.LENGTH_SHORT).show();
+                Log.d("Database Exist", " Database Exist");
             }
         }
 
-         /* for (int i = 0; i < arr.length; i++) {
-           try {
-                mydb.sqldb.execSQL("Alter table Att" + student + " add " + arr[i] + " varchar(20)");
-            }
-            catch (Exception e)
-            { Toast.makeText(getApplicationContext(),"Database Exist",Toast.LENGTH_SHORT).show();
-                break;
 
-            }*/
             }
       public void zeronull(String Id)
       {
@@ -250,9 +238,11 @@ public class AttandanceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attandance);
 
+
+
         sp=(Spinner) findViewById(R.id.spinner);
         sp2=(Spinner) findViewById(R.id.spinner2);
-        sp3=(Spinner) findViewById(R.id.spinner3);
+
 
         TL = (TableLayout)   findViewById(R.id.TB1);
         editRow = (TableRow)   findViewById(R.id.tableRow5);
@@ -260,13 +250,15 @@ public class AttandanceActivity extends Activity {
         mydb=new MyDatabase(this);
         mydb.openDatabase();
          final String Id="Att"+getIntent().getIntExtra("ID",0);
-        int id=getIntent().getIntExtra("ID",0);
+        int id=getIntent().getIntExtra("ID", 0);
 
         Calendar c = Calendar.getInstance();
         int y= c.get(Calendar.YEAR);
 
+
+
         String m= c.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US);
-        String mn= new String(m).toString();
+        final String mn= new String(m).toString();
 
         String yr= new Integer(y).toString();
          try {
@@ -277,46 +269,45 @@ public class AttandanceActivity extends Activity {
             Toast.makeText(getApplicationContext(),"Database found",Toast.LENGTH_SHORT).show();
         }
         rs2=mydb.sqldb.rawQuery("select distinct year from "+Id+";",null);
-        String yea[]=new String[rs2.getCount()];
-        for (int i=0;i<rs2.getCount();i++)
+        String yea[]=new String[rs2.getCount()+1];
+        yea[0]="Year";
+        for (int i=1;i<=rs2.getCount();i++)
         {
-            rs2.moveToPosition(i);
+            rs2.moveToPosition(i-1);
             yea[i]=rs2.getString(0);
 
         }
         rs2=mydb.sqldb.rawQuery("select distinct month from "+Id+";",null);
-        String mnt[]=new String[rs2.getCount()];
-        for (int i=0;i<rs2.getCount();i++)
+        String mnt[]=new String[rs2.getCount()+1];
+        mnt[0]="MONTH";
+        for (int i=1;i<=rs2.getCount();i++)
         {
-            rs2.moveToPosition(i);
+            rs2.moveToPosition(i-1);
             mnt[i]=rs2.getString(0);
 
         }
 
-        rs2=mydb.sqldb.rawQuery("select distinct day from "+Id+";",null);
-        String day[]=new String[rs2.getCount()];
-        for (int i=0;i<rs2.getCount();i++)
-        {
-            rs2.moveToPosition(i);
-            day[i]=rs2.getString(0);
 
-        }
         ArrayAdapter <String> ar1=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_layout,yea);
         ArrayAdapter <String> ar2=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_layout,mnt);
-        ArrayAdapter <String> ar3=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_layout,day);
+
         sp.setAdapter(ar1);
         sp2.setAdapter(ar2);
-        sp3.setAdapter(ar3);
+
 
         sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+
                 TextView view1 = (TextView) view;
                 String a = view1.getText().toString();
-                rs = mydb.sqldb.rawQuery("select * from " + Id + " where month='" + a + "';", null);
-                TL.removeAllViewsInLayout();
-                createDB();
+                if (!a.equals("MONTH")){
+                    rs = mydb.sqldb.rawQuery("select * from " + Id + " where month='" + a + "' ;", null);
+                    TL.removeAllViewsInLayout();
+                    createDB();
+                }
+
             }
 
             @Override
@@ -330,9 +321,11 @@ public class AttandanceActivity extends Activity {
 
                 TextView view1=(TextView)view;
                 String a=view1.getText().toString();
-                rs=mydb.sqldb.rawQuery("select * from "+Id+" where year='"+a+"';",null);
-                TL.removeAllViewsInLayout();
-                createDB();
+                if (!a.equals("Year")){
+                    rs=mydb.sqldb.rawQuery("select * from "+Id+" where year='"+a+"';",null);
+                   TL.removeAllViewsInLayout();
+                   createDB();
+                }
             }
 
             @Override
@@ -386,8 +379,7 @@ public class AttandanceActivity extends Activity {
             }
         });
 
-
-     }
+              }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
