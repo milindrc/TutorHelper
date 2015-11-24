@@ -12,11 +12,12 @@
         android:id="@+id/ADD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
         android:onClick="add"
-        android:text="ADD Records" />
+        android:text="ADD Records"
+        android:layout_marginTop="120dp"
+        android:layout_below="@+id/Register"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/VB1" />
 
     <Button
         android:id="@+id/Register"
@@ -32,40 +33,43 @@
         android:id="@+id/VB1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/ADD"
-        android:layout_alignRight="@+id/ADD"
-        android:layout_below="@+id/ADD"
-        android:layout_marginTop="59dp"
         android:onClick="view"
-        android:text="View/Modify Records" />
+        android:text="View/Modify Records"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ADD"
+        android:layout_alignParentLeft="true"
+        android:layout_alignEnd="@+id/Register" />
 
     <Button
         android:id="@+id/Del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/VB1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp"
         android:onClick="delete"
-        android:text="Delete Records" />
+        android:text="Delete Records"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/VB1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignEnd="@+id/Register" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Attandance"
         android:id="@+id/attandance"
+        android:onClick="attandance"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/Del"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
-        android:onClick="attandance" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignEnd="@+id/Register" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Today&apos;s Schedule"
         android:id="@+id/TODAY"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/attandance"
-        android:onClick="Today" />
+        android:onClick="Today"
+        android:layout_below="@+id/attandance"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

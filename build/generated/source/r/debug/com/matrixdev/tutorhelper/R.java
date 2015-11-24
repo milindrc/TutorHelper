@@ -1624,14 +1624,15 @@ containing a value of this type.
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020043;
         public static final int abc_textfield_search_material=0x7f020044;
         public static final int ic_launcher=0x7f020045;
-        public static final int notification_template_icon_bg=0x7f020046;
+        public static final int notification_template_icon_bg=0x7f020047;
+        public static final int shadow=0x7f020046;
     }
     public static final class id {
         public static final int ADD=0x7f0b0055;
         public static final int AbsoluteLayout1=0x7f0b0051;
         public static final int CB1=0x7f0b006d;
         public static final int Del=0x7f0b005b;
-        public static final int LV=0x7f0b006c;
+        public static final int RV=0x7f0b006c;
         public static final int Register=0x7f0b0061;
         public static final int SB1=0x7f0b006a;
         public static final int SC1=0x7f0b0060;

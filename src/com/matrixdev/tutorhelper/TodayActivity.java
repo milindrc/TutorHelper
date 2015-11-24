@@ -3,9 +3,9 @@ package com.matrixdev.tutorhelper;
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -17,14 +17,14 @@ import MyDatabasePkg.MyDatabase;
 
 public class TodayActivity extends Activity {
 
-    ListView LV;
+    RecyclerView RV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_today);
 
-        LV =(ListView) findViewById(R.id.LV);
+        RV =(RecyclerView) findViewById(R.id.RV);
 
         MyDatabase mydb = new MyDatabase(this);
         mydb.openDatabase();
@@ -114,11 +114,17 @@ public class TodayActivity extends Activity {
 
         }
 
-        System.out.println("----"+arr.size());
+        System.out.println("----" + arr.size());
 
-        ListAdapter la = new ListAdapter(arr);
+       // ListAdapter la = new ListAdapter(arr);
+        RecyclerView.LayoutManager lm = new LinearLayoutManager(this);
 
-        LV.setAdapter(la);
+
+        RV.setLayoutManager(lm);
+
+        RecAdapter ra = new RecAdapter(arr);
+
+        RV.setAdapter(ra);
 
         }
 }

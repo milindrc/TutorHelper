@@ -444,12 +444,13 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f020042
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f020043
 int drawable abc_textfield_search_material 0x7f020044
 int drawable ic_launcher 0x7f020045
-int drawable notification_template_icon_bg 0x7f020046
+int drawable notification_template_icon_bg 0x7f020047
+int drawable shadow 0x7f020046
 int id ADD 0x7f0b0055
 int id AbsoluteLayout1 0x7f0b0051
 int id CB1 0x7f0b006d
 int id Del 0x7f0b005b
-int id LV 0x7f0b006c
+int id RV 0x7f0b006c
 int id Register 0x7f0b0061
 int id SB1 0x7f0b006a
 int id SC1 0x7f0b0060
