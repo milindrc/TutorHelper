@@ -6,18 +6,27 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Time;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import MyDatabasePkg.MyDatabase;
 
@@ -26,18 +35,15 @@ public class AttandanceActivity extends Activity {
     private Context context = this;
     TableLayout TL;
     MyDatabase mydb;
-    Cursor rs,rs2;
+    Cursor rs,rs2,rs3;
     EditText TV[];
     TableRow Ctr,editRow;
     int colWidth[];
+    Spinner sp,sp2,sp3;
+    Button b1;
 
-    void createDB(int id)
+    void createDB()
     {
-
-
-
-        //mydb.sqldb.execSQL("insert into tb1 values(null,'A','X' );");
-
 
 
         rs.moveToFirst();
@@ -77,16 +83,29 @@ public class AttandanceActivity extends Activity {
                 if (rs.getString(j)==null)
                     continue;
 
+                if (rs.getString(j).trim().equals("0") && j>3)
+                {
+                    CheckBox box=new CheckBox(this);
+                    tr[i].addView(box);
+                }
+                else if (rs.getString(j).trim().equals("1")&&j>3)
+                {
+                    CheckBox box=new CheckBox(this);
+                    box.setChecked(true);
+                    tr[i].addView(box);
+                }
+                else {
 
 
-                TV[j] = new EditText(context);
-                TV[j].setBackgroundColor(Color.parseColor("#00000000"));
-                TV[j].setPadding(1, 2, 2, 2);
-                TV[j].setFocusable(false);
-                TV[j].setText("\t"+rs.getString(j).trim()+"\t");
-                TV[j].setGravity(Gravity.CENTER);
+                    TV[j] = new EditText(context);
+                    TV[j].setBackgroundColor(Color.parseColor("#00000000"));
+                    TV[j].setPadding(1, 2, 2, 2);
+                    TV[j].setFocusable(false);
+                    TV[j].setText("\t" + rs.getString(j).trim() + "\t");
+                    TV[j].setGravity(Gravity.CENTER);
 
-                tr[i].addView(TV[j]);
+                    tr[i].addView(TV[j]);
+                }
             }
 
             TL.addView(tr[i]);
@@ -95,17 +114,9 @@ public class AttandanceActivity extends Activity {
         }
         // Adding Data rows into table
 
-       /* try {
-            String name[] = getname(id);
-            for (int i = 0; i < name.length; i++) {
-                mydb.sqldb.execSQL("Alter table Att" + id + " add " + name[i] + " varchar(20)");
-            }
-        }
-        catch (Exception e)
-        {Toast.makeText(getApplicationContext(),"Database Exist",Toast.LENGTH_SHORT).show();
-        }*/
 
-        mydb.sqldb.close();
+
+
 
         //_____________________________________________________________________________________________
 
@@ -114,8 +125,8 @@ public class AttandanceActivity extends Activity {
     {
 
 
-        Toast.makeText(getApplicationContext(),batch,Toast.LENGTH_SHORT).show();
-        mydb.sqldb.execSQL("create table "+batch+"(Year Varchar(20) DEFAULT "+yr+",month varchar(20),day varchar(3))");
+
+        mydb.sqldb.execSQL("create table " + batch + "(Id integer primary key  autoincrement,Year Varchar(20) DEFAULT " + yr + ",month varchar(20),day varchar(3))");
         int y=0;
         int ya=(Integer.parseInt(yr));
         if (ya%4==0&&ya%400==0&&ya%100!=0)
@@ -184,7 +195,7 @@ public class AttandanceActivity extends Activity {
                             continue;
 
                     }
-                    mydb.sqldb.execSQL("Insert into "+batch+"('month','day')values('"+mon+"','"+k+"')");
+                    mydb.sqldb.execSQL("Insert into "+batch+"('Id','month','day')values(null,'"+mon+"','"+k+"')");
 
                 }
             }
@@ -192,32 +203,34 @@ public class AttandanceActivity extends Activity {
         }
     }
     public void getname(int student)
-    {
+     {
         rs2=mydb.sqldb.rawQuery("select name from stu"+student+";", null);
+        rs3=mydb.sqldb.rawQuery("select ID from stu"+student+";",null);
         String arr[]=new String[rs2.getCount()];
+        int id[]=new int[rs3.getCount()];
         for (int i=0;i<rs2.getCount();i++)
-        {
+        {   rs3.moveToPosition(i);
             rs2.moveToPosition(i);
             arr[i]=rs2.getString(0);
+            id[i]=rs3.getInt(0);
             try {
-                mydb.sqldb.execSQL("Alter table Att" + student + " add " + arr[i] + " varchar(20)");
+                mydb.sqldb.execSQL("Alter table Att" + student +" add "+ arr[i]+"_"+id[i]+ " varchar(20)");
             }
             catch (Exception e) {
-                Toast.makeText(getApplicationContext(), "Database Exist", Toast.LENGTH_SHORT).show();
+                Log.d("Database Exist", " Database Exist");
             }
         }
 
-         /* for (int i = 0; i < arr.length; i++) {
-           try {
-                mydb.sqldb.execSQL("Alter table Att" + student + " add " + arr[i] + " varchar(20)");
-            }
-            catch (Exception e)
-            { Toast.makeText(getApplicationContext(),"Database Exist",Toast.LENGTH_SHORT).show();
-                break;
 
-            }*/
             }
-
+      public void zeronull(String Id)
+      {
+          rs=mydb.sqldb.rawQuery("Select * from "+Id+" ;",null);
+          for (int i=3;i<rs.getColumnCount();i++) {
+              String name = rs.getColumnName(i);
+              mydb.sqldb.execSQL("Update "+Id+" set "+name.trim()+"=0 where "+ name.trim()+" is null;");
+          }
+      }
 
 
     @Override
@@ -225,28 +238,106 @@ public class AttandanceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attandance);
 
+
+
+        sp=(Spinner) findViewById(R.id.spinner);
+        sp2=(Spinner) findViewById(R.id.spinner2);
+
+
         TL = (TableLayout)   findViewById(R.id.TB1);
         editRow = (TableRow)   findViewById(R.id.tableRow5);
 
         mydb=new MyDatabase(this);
         mydb.openDatabase();
-         String Id="Att"+getIntent().getIntExtra("ID",0);
-        int id=getIntent().getIntExtra("ID",0);
+         final String Id="Att"+getIntent().getIntExtra("ID",0);
+        int id=getIntent().getIntExtra("ID", 0);
 
         Calendar c = Calendar.getInstance();
         int y= c.get(Calendar.YEAR);
+
+
+
+        String m= c.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US);
+        final String mn= new String(m).toString();
+
         String yr= new Integer(y).toString();
-        try {
+         try {
             attan(Id, yr);
 
         }
         catch (Exception e) {
             Toast.makeText(getApplicationContext(),"Database found",Toast.LENGTH_SHORT).show();
         }
+        rs2=mydb.sqldb.rawQuery("select distinct year from "+Id+";",null);
+        String yea[]=new String[rs2.getCount()+1];
+        yea[0]="Year";
+        for (int i=1;i<=rs2.getCount();i++)
+        {
+            rs2.moveToPosition(i-1);
+            yea[i]=rs2.getString(0);
+
+        }
+        rs2=mydb.sqldb.rawQuery("select distinct month from "+Id+";",null);
+        String mnt[]=new String[rs2.getCount()+1];
+        mnt[0]="MONTH";
+        for (int i=1;i<=rs2.getCount();i++)
+        {
+            rs2.moveToPosition(i-1);
+            mnt[i]=rs2.getString(0);
+
+        }
+
+
+        ArrayAdapter <String> ar1=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_layout,yea);
+        ArrayAdapter <String> ar2=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_layout,mnt);
+
+        sp.setAdapter(ar1);
+        sp2.setAdapter(ar2);
+
+
+        sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+                TextView view1 = (TextView) view;
+                String a = view1.getText().toString();
+                if (!a.equals("MONTH")){
+                    rs = mydb.sqldb.rawQuery("select * from " + Id + " where month='" + a + "' ;", null);
+                    TL.removeAllViewsInLayout();
+                    createDB();
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                TextView view1=(TextView)view;
+                String a=view1.getText().toString();
+                if (!a.equals("Year")){
+                    rs=mydb.sqldb.rawQuery("select * from "+Id+" where year='"+a+"';",null);
+                   TL.removeAllViewsInLayout();
+                   createDB();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         getname(id);
+        zeronull(Id);
 
-        rs=  mydb.sqldb.rawQuery("select * from "+Id+";", null);
+        rs=  mydb.sqldb.rawQuery("select * from "+Id+" where month='"+mn+"' ;", null);
         rs.moveToFirst();
 
 
@@ -257,10 +348,38 @@ public class AttandanceActivity extends Activity {
 
         //_________________________________________________________________________________________
 
-        createDB(id);
+        createDB();
 
+        b1=(Button)findViewById(R.id.button);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i=1;i<TL.getChildCount();i++)
+                {TableRow tr=(TableRow)TL.getChildAt(i);
 
-     }
+                    for (int j=4;j<tr.getChildCount();j++)
+                    {mydb.openDatabase();
+                        CheckBox box=(CheckBox)tr.getChildAt(j);
+                        if (box.isChecked())
+                        {
+                            String row =((EditText)(tr.getChildAt(0))).getText().toString();
+                            row.trim();
+                            String col=rs.getColumnName(j);
+                            mydb.sqldb.execSQL("Update "+Id+" set "+col.trim()+"=1 where id ="+row.trim()+";");
+                        }
+                        else {
+                            String row =((EditText)(tr.getChildAt(0))).getText().toString();
+                            String col=rs.getColumnName(j);
+                            mydb.sqldb.execSQL("Update "+Id+" set "+col.trim()+"=0 where id ="+row.trim()+";");
+                        }
+                    }
+                }
+                Toast.makeText(getApplicationContext(),"Changes Applied",Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+              }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

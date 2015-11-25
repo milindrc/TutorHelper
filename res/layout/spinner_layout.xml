@@ -5,5 +5,8 @@
     android:layout_height="wrap_content"
     android:background="#ffffff"
     android:gravity="center_vertical"
-    android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:foreground="#010101"
+    android:focusableInTouchMode="false"
+    android:textColor="#010101" />
 
