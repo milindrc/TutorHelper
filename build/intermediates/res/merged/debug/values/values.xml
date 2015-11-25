@@ -252,7 +252,7 @@
     <eat-comment/>
     <string name="title_activity_a">AActivity</string>
     <string name="title_activity_add">ADD Batch Records</string>
-    <string name="title_activity_add2">ADD Student Record</string>
+    <string name="title_activity_add2">ADD Fee Record</string>
     <string name="title_activity_array_list">ArrayListActivity</string>
     <string name="title_activity_attandance">AttandanceActivity</string>
     <string name="title_activity_attandance_menu">AttandanceMenu</string>
