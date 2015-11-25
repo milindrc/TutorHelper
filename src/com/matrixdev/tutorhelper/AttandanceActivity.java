@@ -228,7 +228,7 @@ public class AttandanceActivity extends Activity {
           rs=mydb.sqldb.rawQuery("Select * from "+Id+" ;",null);
           for (int i=3;i<rs.getColumnCount();i++) {
               String name = rs.getColumnName(i);
-              mydb.sqldb.execSQL("Update "+Id+" set "+name+"=0 where "+ name+" is null;");
+              mydb.sqldb.execSQL("Update "+Id+" set "+name.trim()+"=0 where "+ name.trim()+" is null;");
           }
       }
 
@@ -365,12 +365,12 @@ public class AttandanceActivity extends Activity {
                             String row =((EditText)(tr.getChildAt(0))).getText().toString();
                             row.trim();
                             String col=rs.getColumnName(j);
-                            mydb.sqldb.execSQL("Update "+Id+" set "+col+"=1 where id ="+row+";");
+                            mydb.sqldb.execSQL("Update "+Id+" set "+col.trim()+"=1 where id ="+row.trim()+";");
                         }
                         else {
                             String row =((EditText)(tr.getChildAt(0))).getText().toString();
                             String col=rs.getColumnName(j);
-                            mydb.sqldb.execSQL("Update "+Id+" set "+col+"=0 where id ="+row+";");
+                            mydb.sqldb.execSQL("Update "+Id+" set "+col.trim()+"=0 where id ="+row.trim()+";");
                         }
                     }
                 }

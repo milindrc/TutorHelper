@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\ASUS\Documents\GitHub\TutorHelper\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="C:\Users\ASUS\Documents\GitHub\TutorHelper\build\intermediates\pre-dexed\debug\classes-d10040030fd34826885f3c0388dbc58b12f0361d.jar" />
-    </item>
-    <item
-        jar="C:\Users\ASUS\Documents\GitHub\TutorHelper\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="C:\Users\ASUS\Documents\GitHub\TutorHelper\build\intermediates\pre-dexed\debug\classes-165eb62d4b81f56843d0df8a85601cf2c178c3fb.jar" />
-    </item>
-    <item
-        jar="C:\Users\ASUS\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jar="D:\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="C:\Users\ASUS\Documents\GitHub\TutorHelper\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-3bf2abfe9f18f32c9bb816e7dcd7a41a32a48946.jar" />
+        <dex dex="D:\Users\milin\workspace\TutorHelper\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-85f3ff9a7deeee8ecfa9ae74ce4eb77d5e3ba26c.jar" />
     </item>
     <item
-        jar="C:\Users\ASUS\Documents\GitHub\TutorHelper\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jar="D:\Users\milin\workspace\TutorHelper\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="D:\Users\milin\workspace\TutorHelper\build\intermediates\pre-dexed\debug\classes-4a59a58bab600a0938e3868762d5b52cb6fbec27.jar" />
+    </item>
+    <item
+        jar="D:\Users\milin\workspace\TutorHelper\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="D:\Users\milin\workspace\TutorHelper\build\intermediates\pre-dexed\debug\classes-319a868ff2c1e0b46867a5db11a762314de12431.jar" />
+    </item>
+    <item
+        jar="D:\Users\milin\workspace\TutorHelper\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="C:\Users\ASUS\Documents\GitHub\TutorHelper\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-083977d3c663daabf1fe0878b761367afb421bb8.jar" />
+        <dex dex="D:\Users\milin\workspace\TutorHelper\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-91b5152716344d440f58c5840eee6e18b6cb33d9.jar" />
     </item>
 
 </items>
